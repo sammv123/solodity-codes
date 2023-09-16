@@ -1,28 +1,62 @@
-// SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+# MyToken Contract
 
-/*
-       REQUIREMENTS
-    1. Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
-    2. Your contract will have a mapping of addresses to balances (address => uint)
-    3. You will have a mint function that takes two parameters: an address and a value. 
-       The function then increases the total supply by that number and increases the balance 
-       of the “sender” address by that amount
-    4. Your contract will have a burn function, which works the opposite of the mint function, as it will destroy tokens. 
-       It will take an address and value just like the mint functions. It will then deduct the value from the total supply 
-       and from the balance of the “sender”.
-    5. Lastly, your burn function should have conditionals to make sure the balance of "sender" is greater than or equal 
-       to the amount that is supposed to be burned.
-*/
+This is a simple Solidity smart contract for creating a custom ERC-20 token called "META" (MTA).
 
-contract MyToken {
+## Contract Details
 
-    // public variables here
+- *Token Name*: META
+- *Token Abbreviation*: MTA
+- *Total Supply*: 0 (initially)
 
-    // mapping variable here
+## Public Variables
 
-    // mint function
+- `tokenName`: A public string variable representing the name of the token.
+- `tokenAbbrv`: A public string variable representing the abbreviation of the token (symbol).
+- `totalSupply`: A public unsigned integer variable representing the total supply of the token.
 
-    // burn function
+## Mapping Variable
 
-}
+- `balances`: A mapping that associates addresses with their corresponding token balances. It tracks the number of tokens held by each address.
+
+## Functions
+
+### `mint`
+
+solidity
+function mint(address _address, uint _value) public
+
+
+This function allows the contract owner (or anyone with the appropriate permissions) to mint new tokens and assign them to a specific address.
+
+- Parameters:
+  - `_address`: The address to which the newly minted tokens will be assigned.
+  - `_value`: The number of tokens to mint and assign.
+
+### `burn`
+
+solidity
+function burn(address _address, uint _value) public
+
+
+The `burn` function allows the contract owner (or anyone with the appropriate permissions) to burn a specific number of tokens held by a given address.
+
+- Parameters:
+  - `_address`: The address from which tokens will be burned.
+  - `_value`: The number of tokens to burn.
+
+Please note that burning tokens reduces the total supply of the token, and it can only be executed if the balance of the target address is equal to or greater than the number of tokens to be burned.
+
+## License
+
+This smart contract is licensed under the MIT License.
+
+plaintext
+SPDX-License-Identifier: MIT
+
+
+## Disclaimer
+
+This smart contract is provided as-is and without any warranties. Use it at your own risk.
+
+*Note*: Remember to mention the Solidity version used to compile the contract in your actual README file. Since Solidity is constantly evolving, it is important to specify the version to ensure future developers can compile and understand the code correctly.
+
